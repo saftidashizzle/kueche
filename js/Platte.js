@@ -18,9 +18,12 @@ Platte.prototype.constructor = Platte;			// richtiges erben
 Platte.prototype.potZuweisen = function(pot) {
 	//prüfen ob platte beim zeitpunkt vom rauftun an ist und dann pot erhitzen
 	this.pot = pot;
+	if(this.status != this.AUS){
+		this.pot.platteTemp=this.status/60;
+	}
 }
 Platte.prototype.potRunter = function(pot) {
-	this.pot.platteTemp = 0;
+	this.pot.platteTemp = this.AUS;
 	this.pot = null;
 }
 Platte.prototype.changeState = function() {
