@@ -1,0 +1,6 @@
+{
+	"Titel": "Pilzrisotto",
+	"Zutaten": [ "500g Pilze", "250g Risotte Reis", "1 Zwiebel", "100ml Wein", "400ml Brühe", "bei Bedarf geriebenen Hartkäse" ,"Petersilie frisch oder tiefgefroren"],
+	"Arbeitsschritte": [ "Zwiebel mit Öl andünsten" , "Risotto Reis andünsten bis er glasig wird", "Mit dem Wein ablöschen", "Hitze reduzieren und bei Geringer Hitze jeweils Flüssigkeit hinzugeben. Jeweils warten bis der Reis die ganze Flüssigkeit aufgenommen hat. Ein gutes Risotto benötigt Zeit.", "In der zwischenzeit die Pilze in klein schneiden", "Solange Flüssigkeit hinzugeben bis der Reis durch aber noch leicht bissfest ist und die Masse eine sämige Konsistenz hat.", "Abschmecken mit Pfeffer, Salz, Petersilie, Hartkäse" ],
+	"Autor": "Philipp Marsch"
+}

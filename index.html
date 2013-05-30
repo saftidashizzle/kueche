@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>K&uuml;chensimulation</title>
+		
+		<script>
+			window.onload = function(){
+				var k = new Kitchen('kitchenCanvas');
+				
+			}
+		</script>
+		<style>
+			div { margin:0px auto; width:1000px; height:600px;}
+			canvas { border:1px solid black;}
+		</style>
+	</head>
+	<body>
+		<div >
+			<canvas id="kitchenCanvas" width="1000" height="600">
+				Your Browser does not support the canvas element!
+			</canvas>
+		</div>
+		
+		<script type="text/javascript" src="js/Kitchen.js"></script>
+		<script type="text/javascript" src="js/Stage.js"></script>
+		<script type="text/javascript" src="js/VisualRenderObject.js"></script>		
+		<script type="text/javascript" src="js/VisualRenderAnimation.js"></script>	
+		<script type="text/javascript" src="js/Pot.js"></script>
+		<script type="text/javascript" src="js/Ingredient.js"></script>
+		<script type="text/javascript" src="js/Platte.js"></script>
+		<script type="text/javascript" src="js/Knob.js"></script>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+{
+	"Titel": "Pizzateig",
+	"Zutaten": [ "500g Mehl", "250 ml Wasser", "etwas Öl", "Salz", "Trockenhefe" ],
+	"Arbeitsschritte": [ "Mehl mit Trockenhefe und Salz in eine große Rührschüssel geben" , "Wasser und Öl dazugeben und soweit veruehren, dass sich eine knetbare Masse ergibt", "Teig kräftig durchkneten", "Vor dem ausrollen mindestens eine Stunde bedeckt an einem warmen Ort gehen lassen"],
+	"Autor": "Philipp Marsch"
+}
