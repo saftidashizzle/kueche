@@ -6,12 +6,12 @@
 		<script>
 			window.onload = function(){
 				var k = new Kitchen('kitchenCanvas');
-				
 			}
 		</script>
 		<style>
 			div { margin:0px auto; width:1000px; height:600px;}
 			canvas { border:1px solid black;}
+			ul { border:1px solid black; width:800px; heigth:200px;}
 		</style>
 	</head>
 	<body>
@@ -19,6 +19,10 @@
 			<canvas id="kitchenCanvas" width="1000" height="600">
 				Your Browser does not support the canvas element!
 			</canvas>
+			<ul>
+			<li id="rezept-list"></li>
+			<li id="rezept-details"></li>
+			</ul>
 		</div>
 		
 		<script type="text/javascript" src="js/Kitchen.js"></script>
@@ -29,5 +33,8 @@
 		<script type="text/javascript" src="js/Ingredient.js"></script>
 		<script type="text/javascript" src="js/Platte.js"></script>
 		<script type="text/javascript" src="js/Knob.js"></script>
+		<script type="text/javascript" src="js/Ajax.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/RezeptDetails.js"></script>
 	</body>
 </html>
