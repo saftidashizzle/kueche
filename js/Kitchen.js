@@ -59,7 +59,6 @@ function Kitchen(canvasId){
 	this.platten.push(platte2);
 	var knob2 = new Knob(this.stage.getContext(), 230, 550, 58, 58, "images/knob.png", 18, false, "knob", platte2);
 	this.stage.addToStage(knob2);
-	
 	// rezept einbinden
 	// REF auf ul Element
 	var rezeptListElement = document.querySelector('#rezept-list');
@@ -127,6 +126,13 @@ Kitchen.prototype.onClick = function(event) {
 			var zone = platte.getHitZone();
 			//check if center point of pot is over the platte		
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
+				var topfAufPlatteSnd = document.createElement("audio");
+				topfAufPlatteSnd.setAttribute("src", "./sound/topfAufPlatteGesetzt.ogg");
+				topfAufPlatteSnd.setAttribute("type", "audio/ogg");
+				topfAufPlatteSnd.setAttribute("autoplay", "true");
+				// topfAufPlatteSnd in body einfuegen oder audio ausgeben
+				document.body.appendChild(topfAufPlatteSnd);
+				
 				platte.pot = event.target;
 				//brauchen wir das?
 				//event.target.changeState();

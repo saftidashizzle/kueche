@@ -46,17 +46,40 @@ Pot.prototype.update = function() {
 	// In der
 //	update Methode des Pots, wird je nach Status (kalt, am Erhitzen,...) entschieden, ob die
 //	aktuelle Temperatur um 1 Grad erhöht oder verringert wird oder nichts passieren soll.
+
+	// sounds laden, nicht abspielen
 	
+	var topfKochtSnd = document.createElement("audio");
+	topfKochtSnd.setAttribute("src", "./sound/kochendesWasser.ogg");
+	topfKochtSnd.setAttribute("type", "audio/ogg");
+	topfKochtSnd.setAttribute("loop", "true");
+	// topfKochtSnd in body einfuegen oder audio ausgeben
+	document.body.appendChild(topfKochtSnd);
+
+
+	
+	
+
 	if((this.temp>=this.KALT+2)&&(this.temp<this.WARM)&&(this.status!=this.KALT)){
+		
 		this.changeAnimSequence("cold");
 		this.status=this.KALT;
-			
+		
 	}
+//	if(1==1){
+//		topfKochtSnd.pause();	
+//	}
 	if((this.temp>this.WARM)&&(this.temp<this.HEISS)&&(this.status!=this.WARM)){
+		// sound abspielen
+		topfKochtSnd.play();
 		this.changeAnimSequence("cooling");
-		this.status=this.WARM;
+		this.status=this.WARM;	
+		
+		
+		
 	}
 	if((this.temp>this.HEISS)&&(this.temp<this.KOCHEN)&&(this.status!=this.HEISS)){
+		topfKochtSnd.pause();
 		this.changeAnimSequence("heating");
 		this.status=this.HEISS;
 	}
@@ -64,7 +87,6 @@ Pot.prototype.update = function() {
 		this.changeAnimSequence("boiling");
 		this.status=this.KOCHEN;
 	}
+	
+	
 };
-
-
-// animobj uebergeben
