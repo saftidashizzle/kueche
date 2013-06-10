@@ -66,7 +66,7 @@ function Kitchen(canvasId){
 	var rezeptDetailsElement = document.querySelector('#rezept-details');
 	
 	
-	Ajax.getJSON('http://localhost/zukunftskueche/js/rezepte.json', function(data){
+	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data){
 		
 		data.rezepte.forEach(function(rezept){
 			// li erzeugen
@@ -123,7 +123,7 @@ Kitchen.prototype.onClick = function(event) {
 		// gehe Alle Platten durch und schaue bei jeder
 		this.platten.forEach(function(platte) {
 			var cx = event.target.getCenter().cx;
-			var cy = event.target.getCenter().cy;
+			var cy = event.target.getCenter().cy+40;
 			var zone = platte.getHitZone();
 			//check if center point of pot is over the platte		
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {

@@ -29,6 +29,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	this.platteTemp = platteTemp/60;
 	console.log('Plattentemp: ' + this.platteTemp);	
 	console.log('topfhitze: ' + this.temp);	
+	console.log('Zutat #1: ' + this.ingredients[0].name);
 };
 
 Pot.prototype.update = function() {
@@ -37,7 +38,7 @@ Pot.prototype.update = function() {
 			this.temp = this.temp-this.raumKaelte;
 		}
 	}
-	if(this.platteTemp<100){
+	if(this.temp<100){
 		this.temp = this.temp+this.platteTemp;
 	}
 	//console.log('stufe: ' + this.temp);

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>K&uuml;chensimulation</title>
-		
+		<title>K&uuml;chensimulation</title>		
+		<meta charset="UTF-8" />
 		<script>
 			window.onload = function(){
 				var k = new Kitchen('kitchenCanvas');
 			}
 		</script>
 		<style>
-			div { margin:0px auto; width:1000px; height:600px;}
+			#main{
+				margin:0px auto;
+				width:1000px;
+				height:600px;
+				position:relative;
+				}
 			canvas { border:1px solid black;}
-			ul { border:1px solid black; width:800px; heigth:200px;}
+			#rezeptBuch { 
+						border:1px #000 dashed;
+						width:600px;
+						min-height:350px;
+						position:absolute;
+						left:20px;
+						top:20px;						
+						}
 		</style>
 	</head>
 	<body>
-		<div >
+		<div id="main">
 			<canvas id="kitchenCanvas" width="1000" height="600">
 				Your Browser does not support the canvas element!
 			</canvas>
-			<ul>
-			<li id="rezept-list"></li>
-			<li id="rezept-details"></li>
-			</ul>
+			<div id="rezeptBuch">
+				<ul id="task-list"></ul>
+				<div id="task-details"></div>
+			</div>
 		</div>
 		
 		<script type="text/javascript" src="js/Kitchen.js"></script>
@@ -33,8 +45,9 @@
 		<script type="text/javascript" src="js/Ingredient.js"></script>
 		<script type="text/javascript" src="js/Platte.js"></script>
 		<script type="text/javascript" src="js/Knob.js"></script>
-		<script type="text/javascript" src="js/Ajax.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-		<script type="text/javascript" src="js/RezeptDetails.js"></script>
+		
+		<script src="js/Ajax.js"></script>
+		<script src="js/rezepte.js"></script>
+		<script src="js/taskDetails.js"></script>
 	</body>
 </html>
