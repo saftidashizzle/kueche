@@ -42,6 +42,22 @@ Pot.prototype.erhitzen1 = function() {
 		this.changeState(this.HEATING2);
 	}
 };
+Pot.prototype.erhitzen2 = function() {
+	if(this.temp<=this.BOILING){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.BOILING);
+	}
+};
+Pot.prototype.kuehlen= function() {
+	if(this.temp>=this.COOLING){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.KALT);
+	}
+};
 
 Pot.prototype = Object.create(VisualRenderAnimation.prototype);	// richtiges erben
 Pot.prototype.constructor = Pot;			// richtiges erben
@@ -50,6 +66,7 @@ Pot.prototype.setIngredient = function(ingredient) {
 	this.ingredients.push(ingredient);
 };
 
+//statt changeState etwas bauen wo der Status des Topfes geändert wird. plattentemp ruhig einfach in der Platte ändern
 Pot.prototype.changeState = function(platteTemp) {
 	this.platteTemp = platteTemp/60;
 	console.log('Plattentemp: ' + this.platteTemp);	
@@ -101,12 +118,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	
 };
 
-Pot.prototype.update = function() {
-// hier nur switch ueber stati
-// brauche heating und cooling methode
-	switch(this.status) {
-		case: this.WARM
-			// 
+// 
 			// methode aufrufen: heating()
 			// hier wird der topf waermer, was vorher in der update war
 			// wenn der schnittpunkt erreicht ist, dann wird status = boiling gesetzt
@@ -115,9 +127,20 @@ Pot.prototype.update = function() {
 			// in erhitzen: ist eine if (temperatur<20>
 			// status ändern
 			// die ruft die naechste methode auf
-			break;
 			
-		case: 
+Pot.prototype.update = function() {
+// hier nur switch ueber stati
+// brauche heating und cooling methode
+
+//zähler bauen damit nur bei jedem 5ten oder noch mehr durchgang gefragt wird (tempo drosseln)
+	switch(this.status) {
+		case this.HEATING1:this.erhitzen1();			
+			break;
+		case this.HEATING2:this.erhitzen2();			
+			break;
+		case this.COOLING:this.kuehlen();			
+			break;			
+		default: ;
 	}
 	
 	

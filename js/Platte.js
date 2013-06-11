@@ -19,10 +19,12 @@ Platte.prototype.potZuweisen = function(pot) {
 	//prüfen ob platte beim zeitpunkt vom rauftun an ist und dann pot erhitzen
 	this.pot = pot;
 	if(this.status != this.AUS){
-		this.pot.platteTemp=this.status/60;
+		this.pot.platteTemp=this.status;
+		this.pot.changeState(this.pot.HEATING1);
 	}
 }
 Platte.prototype.potRunter = function(pot) {
+	this.pot.changeState(this.pot.COOLING);
 	this.pot.platteTemp = this.AUS;
 	this.pot = null;
 }
@@ -31,22 +33,24 @@ Platte.prototype.changeState = function() {
 		switch(this.status){
 			case this.AUS:this.status=this.ERSTESTUFE;
 				if(this.pot!=null){
-					this.pot.changeState(this.status);
+					this.pot.changeState(this.pot.HEATING1);
 				}
 			break;
 			case this.ERSTESTUFE:this.status=this.ZWEITESTUFE;
-				if(this.pot!=null){
-					this.pot.changeState(this.status);
+				if(this.pot!=null){					
+					//plattentemp übergeben, problem mit zu schnell erhitzen in erhitzen oder vor dem switch regeln
+					//this.pot.platteTemp = this.ZWEITESTUFE ?!
 				}
 			break;
 			case this.ZWEITESTUFE:this.status=this.DRITTESTUFE;
 				if(this.pot!=null){
-					this.pot.changeState(this.status);
+					//plattentemp übergeben
 				}
 			break;
 			case this.DRITTESTUFE:this.status=this.AUS;
 				if(this.pot!=null){
-					this.pot.changeState(this.status);
+					//plattentemp übergeben
+					this.pot.changeState(this.pot.COOLING);					
 				}
 			break;
 			default: ;
