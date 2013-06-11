@@ -64,32 +64,57 @@ function Kitchen(canvasId){
 	
 	// rezept einbinden	
 	// REF auf ul Element
-	var rezeptListElement = document.querySelector('#rezept-list');
-	var rezeptDetailsElement = document.querySelector('#rezept-details');
+	var taskListElement = document.querySelector('#task-list');
+	
+	var taskDetailsElement = document.querySelector('#task-details');
 	
 	// ruft ajax auf und uebergibt funktion
-	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data){
-		
-		data.rezepte.forEach(function(rezept){
-			// li erzeugen
-			var rezeptElement = document.createElement('li');
-			// text erzeugen
-			var rezeptText = document.createTextNode(rezept.Titel);
-			// text mit li verknüpfen
-			rezeptElement.appendChild(rezeptText);
-			// li ins DOM einfügen
-			rezeptListElement.appendChild(rezeptElement);
+	/*
+	Ajax.getJSON('http://localhost/kueche/js/tasks.json', function(data){
+		data.tasks.forEach(function(task){
+			//li erzeugen
+			var taskElement = document.createElement('li');
+			//text erzeugen
+			var taskText = document.createTextNode(task.Titel);
+			//text mit li verknüpfen
+			taskElement.appendChild(taskText);
+			//li ins DOM einfügen
+			taskListElement.appendChild(taskElement);
 			
-			rezeptElement.addEventListener('click', function(){
-				// HTML leer machen, damit der Text nicht untereinander angereiht wird
-				rezeptDetailsElement.innerHTML = '';
-				
-				var rezeptDetails = new RezeptDetails(rezeptDetailsElement, rezept);
-				rezeptDetails.render();
-			
+			taskElement.addEventListener('click', function(){
+					taskDetailsElement.innerHTML = '';
+					var taskDetails = new TaskDetails(taskDetailsElement, task ) ;
+					taskDetails.render();
 			});
 		});
+	});*/	
+	
+	var rezeptListeElement = document.querySelector('#rezeptListe');
+	var rezeptDetailsElement = document.querySelector('#rezeptDetails');
+	
+	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data) {
+		data.rezepte.forEach(function(rezept) {
+			var rezeptListenElement = document.createElement('li');
+			
+			var rezeptText = document.createTextNode(rezept.Titel);
+			
+			rezeptListenElement.appendChild(rezeptText);
+			
+			rezeptListeElement.appendChild(rezeptListenElement);
+			
+			rezeptListenElement.addEventListener('click', function() {
+				rezeptDetailsElement.innerHTML = '';
+				var rezeptDetails = new RezeptManager(rezeptDetailsElement, rezept);
+				rezeptDetails.render();
+			});
+			
+		});
 	});
+
+
+	
+	
+	
 	
 	// event registrieren - auf topf klicken = ausgabe
 	

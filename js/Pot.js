@@ -7,16 +7,41 @@ function Pot(context, sx, sy, w, h, imgPath, zOrder, draggable, name, animObj) {
 	this.setDraggable(draggable);
 
 	this.raumKaelte = 0.015;
-	this.platteTemp = 0;
+	this.platteTemp = 0; // stufe
 	this.MIN_TEMP = 8;
 	this.MAX_TEMP = 100;
 	this.temp = this.MIN_TEMP;
-	this.KALT = this.MIN_TEMP;
-	this.WARM = 20;
-	this.HEISS = 50;
-	this.KOCHEN = 90;
-	this.status = this.KALT;
+	this.COLD = this.MIN_TEMP;
+	// min und max temp waren fuer die animation, alles ueber min und unter max temp war heating, darueber 
+	// boiling, darunter kalt
+	this.HEATING1 = 8;
+	this.HEATING2 = 50;
+	this.BOILING = 95;
+	this.COOLING = 20; // wenn die temperatur erreicht ist setze topf auf kalt und anim weg
+	this.status = this.COLD;
+	this.topfKochtSnd = new Audio('sounds/boiling-water-2.wav');
+	
 }
+
+// topf auf platte, platte an:
+// status des topfs auf heating1
+// ich geh in die update: switch (laeuft immer, nur bei cold passiert nix da)
+// rufe methode auf erhitzen()
+// in erhitzen(): wenn temperatur (heating2) erreicht ist: status = heating 2
+// wenn der switch merkt, status = heating2 dann rufe methode erhitzen2() auf
+// erhitzen2: macht das gleiche, wechselt dann aber status zu boiling
+
+// wenn ich topf runternehme, oder knopf auf aus: status auf cooling setzen
+
+
+Pot.prototype.erhitzen1 = function() {
+	if(this.temp<=this.HEATING2){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.HEATING2);
+	}
+};
 
 Pot.prototype = Object.create(VisualRenderAnimation.prototype);	// richtiges erben
 Pot.prototype.constructor = Pot;			// richtiges erben
@@ -30,9 +55,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	console.log('Plattentemp: ' + this.platteTemp);	
 	console.log('topfhitze: ' + this.temp);	
 	console.log('Zutat #1: ' + this.ingredients[0].name);
-};
-
-Pot.prototype.update = function() {
+	
 	if(this.platteTemp<=0){
 		if(this.temp>this.MIN_TEMP){
 			this.temp = this.temp-this.raumKaelte;
@@ -44,20 +67,8 @@ Pot.prototype.update = function() {
 	//console.log('stufe: ' + this.temp);
 	// in der kitchen fuer jeden pot einmal aufrufen - passiert dann 60*/s
 	// In der
-//	update Methode des Pots, wird je nach Status (kalt, am Erhitzen,...) entschieden, ob die
-//	aktuelle Temperatur um 1 Grad erhöht oder verringert wird oder nichts passieren soll.
-
-	// sounds laden, nicht abspielen
-	
-	var topfKochtSnd = document.createElement("audio");
-	topfKochtSnd.setAttribute("src", "./sound/kochendesWasser.ogg");
-	topfKochtSnd.setAttribute("type", "audio/ogg");
-	topfKochtSnd.setAttribute("loop", "true");
-	// topfKochtSnd in body einfuegen oder audio ausgeben
-	document.body.appendChild(topfKochtSnd);
-
-
-	
+	//	update Methode des Pots, wird je nach Status (kalt, am Erhitzen,...) entschieden, ob die
+	//	aktuelle Temperatur um 1 Grad erhöht oder verringert wird oder nichts passieren soll.
 	
 
 	if((this.temp>=this.KALT+2)&&(this.temp<this.WARM)&&(this.status!=this.KALT)){
@@ -66,9 +77,9 @@ Pot.prototype.update = function() {
 		this.status=this.KALT;
 		
 	}
-//	if(1==1){
-//		topfKochtSnd.pause();	
-//	}
+	//	if(1==1){
+	//		topfKochtSnd.pause();	
+	//	}
 	if((this.temp>this.WARM)&&(this.temp<this.HEISS)&&(this.status!=this.WARM)){
 		// sound abspielen
 		topfKochtSnd.play();
@@ -86,6 +97,27 @@ Pot.prototype.update = function() {
 	if((this.temp>this.KOCHEN)&&(this.status!=this.KOCHEN)){
 		this.changeAnimSequence("boiling");
 		this.status=this.KOCHEN;
+	}
+	
+};
+
+Pot.prototype.update = function() {
+// hier nur switch ueber stati
+// brauche heating und cooling methode
+	switch(this.status) {
+		case: this.WARM
+			// 
+			// methode aufrufen: heating()
+			// hier wird der topf waermer, was vorher in der update war
+			// wenn der schnittpunkt erreicht ist, dann wird status = boiling gesetzt
+			
+			// update ruft im switch erhitzen, bzw die andern auf (methode
+			// in erhitzen: ist eine if (temperatur<20>
+			// status ändern
+			// die ruft die naechste methode auf
+			break;
+			
+		case: 
 	}
 	
 	
