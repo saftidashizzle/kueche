@@ -67,6 +67,7 @@ function Kitchen(canvasId){
 	var rezeptListElement = document.querySelector('#rezept-list');
 	var rezeptDetailsElement = document.querySelector('#rezept-details');
 	
+	// ruft ajax auf und uebergibt funktion
 	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data){
 		
 		data.rezepte.forEach(function(rezept){
