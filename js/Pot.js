@@ -11,9 +11,10 @@ function Pot(context, sx, sy, w, h, imgPath, zOrder, draggable, name, animObj) {
 	this.MIN_TEMP = 8;
 	this.MAX_TEMP = 100;
 	this.temp = this.MIN_TEMP;
-	this.COLD = this.MIN_TEMP;
+	
 	// min und max temp waren fuer die animation, alles ueber min und unter max temp war heating, darueber 
 	// boiling, darunter kalt
+	this.COLD = this.MIN_TEMP;
 	this.HEATING1 = 8;
 	this.HEATING2 = 50;
 	this.BOILING = 95;
@@ -45,8 +46,8 @@ Pot.prototype.setIngredient = function(ingredient) {
 };
 
 //statt changeState etwas bauen wo der Status des Topfes geändert wird. plattentemp ruhig einfach in der Platte ändern
-Pot.prototype.changeState = function() {
-	switch (this.status) {
+Pot.prototype.changeState = function(targetStatus) {
+	/*switch (this.status) {
 		case this.COLD: this.status=this.HEATING1;
 			this.changeAnimSequence("heating");
 			topfKochtSnd.play();
@@ -63,7 +64,11 @@ Pot.prototype.changeState = function() {
 		case this.COOLING: this.status=this.COLD;
 			break;
 		default:;
-	}
+	}*/
+	this.status=targetStatus;
+	this.platteTempFaktor = this.platteTemp/60;
+	console.log('Plattentemp: ' + this.platteTempFaktor);	
+	console.log('topfhitze: ' + this.temp);	
 	console.log('Pot.changeState, Status: ' + this.status);
 	
 	/*
