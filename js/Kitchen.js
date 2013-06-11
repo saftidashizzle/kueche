@@ -109,22 +109,12 @@ function Kitchen(canvasId){
 			});
 			
 		});
-	});
-
-
-	
-	
-	
+	});	
 	
 	// event registrieren - auf topf klicken = ausgabe
 	
 	this.stage.registerEvent('click', this);
-	this.stage.registerEvent('dragend', this);
-
-	
-	
-	
-	
+	this.stage.registerEvent('dragend', this);	
 	
 	// start the animation loop
 	// parameter this (kitchen itself) needed, because of the closure within the run function
@@ -147,14 +137,8 @@ Kitchen.prototype.onClick = function(event) {
 			var zone = platte.getHitZone();
 			//check if center point of pot is over the platte		
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
-				// topfAufPlatteSnd in body einfuegen oder audio ausgeben
-				var topfAufPlatteSnd = document.createElement("audio");
-				topfAufPlatteSnd.setAttribute("src", "./sound/topfAufPlatteGesetzt.ogg");
-				topfAufPlatteSnd.setAttribute("type", "audio/ogg");
-				// bei autoplay ist es egal ob es true oder false ist
-				//topfAufPlatteSnd.setAttribute("autoplay", "true");
-				 document.body.appendChild(topfAufPlatteSnd);
-				 topfAufPlatteSnd.play();
+				
+				event.target.topfAufPlatteSnd.play();
 				
 				platte.pot = event.target;
 				//brauchen wir das?

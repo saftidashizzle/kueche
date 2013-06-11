@@ -19,7 +19,9 @@ function Pot(context, sx, sy, w, h, imgPath, zOrder, draggable, name, animObj) {
 	this.BOILING = 95;
 	this.COOLING = 20; // wenn die temperatur erreicht ist setze topf auf kalt und anim weg
 	this.status = this.COLD;
-	this.topfKochtSnd = new Audio('sounds/boiling-water-2.wav');
+	this.topfKochtSnd = new Audio('sound/kochendesWasser.ogg');
+	this.topfAufPlatteSnd = new Audio('./sound/topfAufPlatteGesetzt.ogg');
+	
 	
 }
 
@@ -34,30 +36,6 @@ function Pot(context, sx, sy, w, h, imgPath, zOrder, draggable, name, animObj) {
 // wenn ich topf runternehme, oder knopf auf aus: status auf cooling setzen
 
 
-Pot.prototype.erhitzen1 = function() {
-	if(this.temp<=this.HEATING2){
-		this.temp = this.temp+this.platteTemp;
-	} else{
-		//in changestate animation und sound ändern (switch)
-		this.changeState(this.HEATING2);
-	}
-};
-Pot.prototype.erhitzen2 = function() {
-	if(this.temp<=this.BOILING){
-		this.temp = this.temp+this.platteTemp;
-	} else{
-		//in changestate animation und sound ändern (switch)
-		this.changeState(this.BOILING);
-	}
-};
-Pot.prototype.kuehlen= function() {
-	if(this.temp>=this.COOLING){
-		this.temp = this.temp+this.platteTemp;
-	} else{
-		//in changestate animation und sound ändern (switch)
-		this.changeState(this.KALT);
-	}
-};
 
 Pot.prototype = Object.create(VisualRenderAnimation.prototype);	// richtiges erben
 Pot.prototype.constructor = Pot;			// richtiges erben
@@ -71,7 +49,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	this.platteTemp = platteTemp/60;
 	console.log('Plattentemp: ' + this.platteTemp);	
 	console.log('topfhitze: ' + this.temp);	
-	console.log('Zutat #1: ' + this.ingredients[0].name);
+	//console.log('Zutat #1: ' + this.ingredients[0].name);
 	
 	if(this.platteTemp<=0){
 		if(this.temp>this.MIN_TEMP){
@@ -118,7 +96,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	
 };
 
-// 
+
 			// methode aufrufen: heating()
 			// hier wird der topf waermer, was vorher in der update war
 			// wenn der schnittpunkt erreicht ist, dann wird status = boiling gesetzt
@@ -134,14 +112,37 @@ Pot.prototype.update = function() {
 
 //zähler bauen damit nur bei jedem 5ten oder noch mehr durchgang gefragt wird (tempo drosseln)
 	switch(this.status) {
-		case this.HEATING1:this.erhitzen1();			
+		case this.HEATING1: this.erhitzen1();			
 			break;
-		case this.HEATING2:this.erhitzen2();			
+		case this.HEATING2: this.erhitzen2();			
 			break;
-		case this.COOLING:this.kuehlen();			
+		case this.COOLING: this.kuehlen();			
 			break;			
 		default: ;
+	}	
+};
+
+Pot.prototype.erhitzen1 = function() {
+	if(this.temp<=this.HEATING2){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.HEATING2);
 	}
-	
-	
+};
+Pot.prototype.erhitzen2 = function() {
+	if(this.temp<=this.BOILING){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.BOILING);
+	}
+};
+Pot.prototype.kuehlen= function() {
+	if(this.temp>=this.COOLING){
+		this.temp = this.temp+this.platteTemp;
+	} else{
+		//in changestate animation und sound ändern (switch)
+		this.changeState(this.KALT);
+	}
 };
