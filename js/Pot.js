@@ -45,44 +45,56 @@ Pot.prototype.setIngredient = function(ingredient) {
 };
 
 //statt changeState etwas bauen wo der Status des Topfes geändert wird. plattentemp ruhig einfach in der Platte ändern
-Pot.prototype.changeState = function(platteTemp) {
-	this.platteTemp = platteTemp/60;
-	console.log('Plattentemp: ' + this.platteTemp);	
-	console.log('topfhitze: ' + this.temp);	
-	//console.log('Zutat #1: ' + this.ingredients[0].name);
+Pot.prototype.changeState = function() {
+	switch (this.status) {
+		case this.COLD: this.status=this.HEATING1;
+			this.changeAnimSequence("heating");
+			topfKochtSnd.play();
+			break;
+		case this.HEATING1: this.status=this.HEATING2;
+			this.changeAnimSequence("heating");
+			break;
+		case this.HEATING2: this.status=this.BOILING;
+			this.changeAnimSequence("boiling");
+			break;
+		case this.BOILING: this.status=this.COOLING;
+			this.changeAnimSequence("cooling");
+			break;
+		case this.COOLING: this.status=this.COLD;
+			break;
+		default:;
+	}
+	console.log('Pot.changeState, Status: ' + this.status);
 	
-	if(this.platteTemp<=0){
+	/*
+	 * 	this.platteTempFaktor = platteTemp/60;
+	console.log('Plattentemp: ' + this.platteTempFaktor);	
+	console.log('topfhitze: ' + this.temp);	
+//console.log('Zutat #1: ' + this.ingredients[0].name);
+	if(this.platteTempFaktor<=0){
 		if(this.temp>this.MIN_TEMP){
 			this.temp = this.temp-this.raumKaelte;
 		}
 	}
 	if(this.temp<100){
-		this.temp = this.temp+this.platteTemp;
+		this.temp = this.temp+this.platteTempFaktor;
 	}
 	//console.log('stufe: ' + this.temp);
-	// in der kitchen fuer jeden pot einmal aufrufen - passiert dann 60*/s
+	// in der kitchen fuer jeden pot einmal aufrufen - passiert dann 60 mal pro sekunde
 	// In der
 	//	update Methode des Pots, wird je nach Status (kalt, am Erhitzen,...) entschieden, ob die
-	//	aktuelle Temperatur um 1 Grad erhöht oder verringert wird oder nichts passieren soll.
+	//	aktuelle Temperatur um 1 Grad erhöht oder verringert wird oder nichts passieren soll
 	
-
 	if((this.temp>=this.KALT+2)&&(this.temp<this.WARM)&&(this.status!=this.KALT)){
 		
 		this.changeAnimSequence("cold");
 		this.status=this.KALT;
-		
 	}
-	//	if(1==1){
-	//		topfKochtSnd.pause();	
-	//	}
 	if((this.temp>this.WARM)&&(this.temp<this.HEISS)&&(this.status!=this.WARM)){
 		// sound abspielen
 		topfKochtSnd.play();
 		this.changeAnimSequence("cooling");
-		this.status=this.WARM;	
-		
-		
-		
+		this.status=this.WARM;			
 	}
 	if((this.temp>this.HEISS)&&(this.temp<this.KOCHEN)&&(this.status!=this.HEISS)){
 		topfKochtSnd.pause();
@@ -92,7 +104,7 @@ Pot.prototype.changeState = function(platteTemp) {
 	if((this.temp>this.KOCHEN)&&(this.status!=this.KOCHEN)){
 		this.changeAnimSequence("boiling");
 		this.status=this.KOCHEN;
-	}
+	}*/
 	
 };
 
@@ -107,8 +119,6 @@ Pot.prototype.changeState = function(platteTemp) {
 			// die ruft die naechste methode auf
 			
 Pot.prototype.update = function() {
-// hier nur switch ueber stati
-// brauche heating und cooling methode
 
 //zähler bauen damit nur bei jedem 5ten oder noch mehr durchgang gefragt wird (tempo drosseln)
 	switch(this.status) {
@@ -124,7 +134,7 @@ Pot.prototype.update = function() {
 
 Pot.prototype.erhitzen1 = function() {
 	if(this.temp<=this.HEATING2){
-		this.temp = this.temp+this.platteTemp;
+		this.temp = this.temp+this.platteTempFaktor;
 	} else{
 		//in changestate animation und sound ändern (switch)
 		this.changeState(this.HEATING2);
@@ -132,7 +142,7 @@ Pot.prototype.erhitzen1 = function() {
 };
 Pot.prototype.erhitzen2 = function() {
 	if(this.temp<=this.BOILING){
-		this.temp = this.temp+this.platteTemp;
+		this.temp = this.temp+this.platteTempFaktor;
 	} else{
 		//in changestate animation und sound ändern (switch)
 		this.changeState(this.BOILING);
@@ -140,9 +150,9 @@ Pot.prototype.erhitzen2 = function() {
 };
 Pot.prototype.kuehlen= function() {
 	if(this.temp>=this.COOLING){
-		this.temp = this.temp+this.platteTemp;
+		this.temp = this.temp-this.platteTempFaktor;
 	} else{
 		//in changestate animation und sound ändern (switch)
-		this.changeState(this.KALT);
+		this.changeState(this.COLD);
 	}
 };
