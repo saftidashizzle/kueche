@@ -62,13 +62,6 @@ function Kitchen(canvasId){
 	var knob2 = new Knob(this.stage.getContext(), 230, 550, 58, 58, "images/knob.png", 18, false, "knob", platte2);
 	this.stage.addToStage(knob2);
 	
-	// rezept einbinden	
-	// REF auf ul Element
-	var taskListElement = document.querySelector('#task-list');
-	
-	var taskDetailsElement = document.querySelector('#task-details');
-	
-	// ruft ajax auf und uebergibt funktion
 	/*
 	Ajax.getJSON('http://localhost/kueche/js/tasks.json', function(data){
 		data.tasks.forEach(function(task){
@@ -87,11 +80,14 @@ function Kitchen(canvasId){
 					taskDetails.render();
 			});
 		});
-	});*/	
+	});	*/
+	// rezept einbinden	
+	// REF auf ul Element
+
 	
 	var rezeptListeElement = document.querySelector('#rezeptListe');
 	var rezeptDetailsElement = document.querySelector('#rezeptDetails');
-	
+	// ruft ajax auf und uebergibt funktion	
 	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data) {
 		data.rezepte.forEach(function(rezept) {
 			var rezeptListenElement = document.createElement('li');
@@ -109,7 +105,7 @@ function Kitchen(canvasId){
 			});
 			
 		});
-	});	
+	});
 	
 	// event registrieren - auf topf klicken = ausgabe
 	
@@ -139,11 +135,8 @@ Kitchen.prototype.onClick = function(event) {
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
 				
 				event.target.topfAufPlatteSnd.play();
-				
-				platte.pot = event.target;
-				//brauchen wir das?
-				//event.target.changeState();
 				//topf auf platte tun
+				
 				platte.potZuweisen(event.target);
 				console.log('topf auf eine platte drauf' + platte.pot); // wie spreche ich hier die jeweilige platte an?
 			} else {

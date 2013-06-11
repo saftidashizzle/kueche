@@ -20,14 +20,14 @@ Platte.prototype.potZuweisen = function(pot) {
 	this.pot = pot;
 	if(this.status != this.AUS){
 		this.pot.platteTemp=this.status;
-		this.pot.changeState(this.pot.HEATING1);
+		this.pot.changeState(this.pot.HEATING1); // hier paramete ueberpruefen
 	}
-}
+};
 Platte.prototype.potRunter = function(pot) {
 	this.pot.changeState(this.pot.COOLING);
 	this.pot.platteTemp = this.AUS;
 	this.pot = null;
-}
+};
 Platte.prototype.changeState = function() {
 	//switch um den status der Platte zu steuern
 		switch(this.status){

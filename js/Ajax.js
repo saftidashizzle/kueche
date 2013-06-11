@@ -31,13 +31,13 @@ var Ajax = (function () {
 			var request = new XMLHttpRequest();
 
 			request.addEventListener("load", function (evt) {
-				try {
+				//try {
 					var data = JSON.parse(evt.target.responseText);
 
 					callback(data);
-				} catch (e) {
-					throw new Error('getJSON: Die JSON-Datei ist nicht valide. Bitte ueberpruefe die Syntax.');
-				}
+				//} catch (e) {
+//					throw new Error('getJSON: Die JSON-Datei ist nicht valide. Bitte ueberpruefe die Syntax.');
+				//}
 			});
 
 			request.open('GET', url, false);
