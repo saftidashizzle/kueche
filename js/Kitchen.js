@@ -16,24 +16,24 @@ function Kitchen(canvasId){
 	var animObj = {
 					"image" : 
 					{
-						"tilewidth": 160,
-						"tileHeight": 180,
-						"imgWidth": 640,
-						"imgHeigth": 360
+						"tilewidth": 250,
+						"tileHeight": 199,
+						"imgWidth": 1000,
+						"imgHeigth": 597
 					},
 					"animations":
 					{
 					"default":{ "seq":[0], "loop":false },
 					"cold": {"seq":[0], "loop":false },
-					"heating": {"seq":[1,2,3,3,2], "loop":true },
-					"cooling": {"seq":[1,1,2,3,2], "loop":true },
-					"boiling":{"seq":[4,5,6,7], "loop":true}
+					"heating": {"seq":[4,5,6], "loop":true },
+					"cooling": {"seq":[1,2,3], "loop":true },
+					"boiling":{"seq":[6,7,8,9,10,11], "loop":true}
 					}
 				};
 	// pot hinzufügen
 	
 	// hier die groesse des tiles angeben, anstatt bild groesse, außerdem img pfad: sprite grafik und animObj uebergeben
-	var p1 = new Pot(this.stage.getContext(), 300, 280, 160, 180, "images/pot_anim.png", 19, true, "pot", animObj);
+	var p1 = new Pot(this.stage.getContext(), 300, 280, 250, 199, "images/potAnim.png", 19, true, "pot", animObj);
 	this.pots.push(p1);
 	this.stage.addToStage(p1);
 	
