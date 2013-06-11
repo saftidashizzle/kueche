@@ -11,6 +11,8 @@ function Kitchen(canvasId){
 	this.ingredients = [];
 	this.platten = [];
 	
+	// animObjekt fuer sprite vom topf erstellen
+	
 	var animObj = {
 					"image" : 
 					{
@@ -59,11 +61,11 @@ function Kitchen(canvasId){
 	this.platten.push(platte2);
 	var knob2 = new Knob(this.stage.getContext(), 230, 550, 58, 58, "images/knob.png", 18, false, "knob", platte2);
 	this.stage.addToStage(knob2);
-	// rezept einbinden
+	
+	// rezept einbinden	
 	// REF auf ul Element
 	var rezeptListElement = document.querySelector('#rezept-list');
 	var rezeptDetailsElement = document.querySelector('#rezept-details');
-	
 	
 	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data){
 		
@@ -87,9 +89,6 @@ function Kitchen(canvasId){
 			});
 		});
 	});
-
-	
-	// hier waren methoden vorher 
 	
 	// event registrieren - auf topf klicken = ausgabe
 	
@@ -98,25 +97,21 @@ function Kitchen(canvasId){
 
 	
 	
+	
+	
+	
 	// start the animation loop
 	// parameter this (kitchen itself) needed, because of the closure within the run function
 	this.run(this);
-	
+
+// kitchen function vorbei
 }	
 
-// function um knobs bei klick 180grad zu drehen
-Kitchen.prototype.onClick = function(event){
-	
-	
-};
-
-
-// bei Klick und Loslassen wird jeweils das event und das ziel in der Konsole ausgegeben
+// bei Klick funktion
 Kitchen.prototype.onClick = function(event) {
 	if(event.target instanceof Knob) {
 		event.target.changeState();
 	}
-	console.log(event);
 	// ist das losgelassene Objekt ein Pot?
 	if(event.target instanceof Pot) {
 		// gehe Alle Platten durch und schaue bei jeder
@@ -126,12 +121,14 @@ Kitchen.prototype.onClick = function(event) {
 			var zone = platte.getHitZone();
 			//check if center point of pot is over the platte		
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
+				// topfAufPlatteSnd in body einfuegen oder audio ausgeben
 				var topfAufPlatteSnd = document.createElement("audio");
 				topfAufPlatteSnd.setAttribute("src", "./sound/topfAufPlatteGesetzt.ogg");
 				topfAufPlatteSnd.setAttribute("type", "audio/ogg");
-				topfAufPlatteSnd.setAttribute("autoplay", "true");
-				// topfAufPlatteSnd in body einfuegen oder audio ausgeben
-				document.body.appendChild(topfAufPlatteSnd);
+				// bei autoplay ist es egal ob es true oder false ist
+				//topfAufPlatteSnd.setAttribute("autoplay", "true");
+				 document.body.appendChild(topfAufPlatteSnd);
+				 topfAufPlatteSnd.play();
 				
 				platte.pot = event.target;
 				//brauchen wir das?
@@ -149,6 +146,8 @@ Kitchen.prototype.onClick = function(event) {
 	console.log(event);
 	console.log(event.target);
 };
+
+// was passiert bei dragend
 
 Kitchen.prototype.onDragend = function(event) {
 	if(event.target instanceof Ingredient) {		
