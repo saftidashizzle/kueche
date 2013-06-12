@@ -31,5 +31,4 @@ Knob.prototype.changeState = function() {
 	}
 	this.setRotation(90+this.getRotation());
 	this.platte.changeState();
-	console.log('knob.changestate:' + this.status);
 };

@@ -12,15 +12,15 @@ function RezeptManager(container, data){
 		
 		var rezeptHeadline = document.createElement('h2');
 		var rezeptTitelText = document.createTextNode(this.data.Titel);
-		taskHeadline.appendChild(rezeptTitelText);
+		rezeptHeadline.appendChild(rezeptTitelText);
 		//ins DOM
 		this.container.appendChild(rezeptHeadline);
 	
-		var dateElement = document.createElement('p');
+		var zutatenElement = document.createElement('p');
 		var dateText = document.createTextNode(this.data.Zutaten);
-		dateElement.appendChild(dateText);
+		zutatenElement.appendChild(dateText);
 		//ins DOM
-		this.container.appendChild(dateElement);
+		this.container.appendChild(zutatenElement);
 		
 		var descElement = document.createElement('p');
 		var descText = document.createTextNode(this.data.Arbeitsschritte);

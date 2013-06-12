@@ -23,7 +23,7 @@ Platte.prototype.potZuweisen = function(pot) {
 	}
 };
 Platte.prototype.potRunter = function(pot) {
-	//this.pot.changeState();
+	this.pot.changeState(this.pot.COOLING);
 	this.pot.platteTemp = this.AUS;
 	this.pot = null;
 };
@@ -40,7 +40,6 @@ Platte.prototype.changeState = function() {
 				if(this.pot!=null){
 					this.pot.platteTemp = this.ZWEITESTUFE;
 					//plattentemp übergeben, problem mit zu schnell erhitzen in erhitzen oder vor dem switch regeln
-					//this.pot.platteTemp = this.ZWEITESTUFE ?!
 				}
 			break;
 			case this.ZWEITESTUFE:this.status=this.DRITTESTUFE;
@@ -58,7 +57,6 @@ Platte.prototype.changeState = function() {
 			break;
 			default: ;
 		}
-	console.log('platte.changestate:' + this.status);
 };
 
 

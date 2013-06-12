@@ -88,8 +88,9 @@ function Kitchen(canvasId){
 	var rezeptListeElement = document.querySelector('#rezeptListe');
 	var rezeptDetailsElement = document.querySelector('#rezeptDetails');
 	// ruft ajax auf und uebergibt funktion	
-	Ajax.getJSON('http://localhost/kueche/js/rezepte.json', function(data) {
+	Ajax.getJSON('./js/rezepte.json', function(data) {
 		data.rezepte.forEach(function(rezept) {
+			
 			var rezeptListenElement = document.createElement('li');
 			
 			var rezeptText = document.createTextNode(rezept.Titel);
@@ -138,7 +139,6 @@ Kitchen.prototype.onClick = function(event) {
 				//topf auf platte tun
 				
 				platte.potZuweisen(event.target);
-				console.log('topf auf eine platte drauf' + platte.pot); // wie spreche ich hier die jeweilige platte an?
 			} else {
 				if(platte.pot != null){
 					platte.potRunter(event.target);
@@ -170,7 +170,6 @@ Kitchen.prototype.onDragend = function(event) {
 	console.log(event);
 	console.log(event.target);
 };
-
 
 /**
  * Animation loop
