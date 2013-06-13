@@ -134,10 +134,9 @@ Kitchen.prototype.onClick = function(event) {
 			var zone = platte.getHitZone();
 			//check if center point of pot is over the platte		
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
-				
+				//sound zu topf auf platte
 				event.target.topfAufPlatteSnd.play();
 				//topf auf platte tun
-				
 				platte.potZuweisen(event.target);
 			} else {
 				if(platte.pot != null){
@@ -179,11 +178,12 @@ Kitchen.prototype.run = function(kit) {
 	
 	// update the objects (Plate, Knob, ...)
 	kit.pots.forEach(function(pot) {
-			pot.update();
-		});	
+		pot.update();
+	});	
 	// Always render after the updates
 	kit.stage.render();
 	// keep the loop going
-	window.requestAnimationFrame(function(){ kit.run(kit);});
-	
+	window.requestAnimationFrame(function(){
+		kit.run(kit);
+	});	
 };

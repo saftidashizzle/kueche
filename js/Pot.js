@@ -52,10 +52,11 @@ Pot.prototype.changeState = function(targetStatus) {
 			break;
 		case this.HEATING1:;
 			this.changeAnimSequence("heating");
-			this.topfKochtSnd.play();
 			break;
 		case this.HEATING2:
 			this.changeAnimSequence("heating");
+			this.topfKochtSnd.play();
+			this.topfKochtSnd.loop = true;
 			break;
 		case this.BOILING: 
 			this.changeAnimSequence("boiling");
