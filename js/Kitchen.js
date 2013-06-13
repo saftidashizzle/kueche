@@ -81,10 +81,9 @@ function Kitchen(canvasId){
 			});
 		});
 	});	*/
+	
 	// rezept einbinden	
 	// REF auf ul Element
-
-	
 	var rezeptListeElement = document.querySelector('#rezeptListe');
 	var rezeptDetailsElement = document.querySelector('#rezeptDetails');
 	// ruft ajax auf und uebergibt funktion	

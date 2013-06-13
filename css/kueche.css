@@ -1,0 +1,25 @@
+#main{
+	margin:0px auto;
+	width:1000px;
+	height:600px;
+	position:relative;
+	}
+	canvas { border:1px solid black;}
+#rezeptBuch{
+	background: url(../images/Rezeptbuch.png);
+	border:1px #000 dashed;
+	width:400px;
+	min-height:250px;
+	position:absolute;
+	left:20px;
+	top:20px;						
+	}
+#rezeptDetails{
+	background:url(../images/Rezept.gif);
+	width:250px;
+	max-height:150px;
+	position:absolute;
+	right:20px;
+	top:20px;
+	overflow-x:scroll;
+	}
