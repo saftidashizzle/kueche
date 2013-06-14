@@ -39,13 +39,13 @@ function Kitchen(canvasId){
 	
 	// zutaten hinzufügen
 	
-	var i1 = new Ingredient(this.stage.getContext(), 0, 0, 101, 76, "images/nudel.png", 21, true, "nudel");
+	var i1 = new Ingredient(this.stage.getContext(), 0, 300, 101, 76, "images/nudel.png", 20, true, "nudel");
 	this.ingredients.push(i1);
 	this.stage.addToStage(i1);	
-	var i2 = new Ingredient(this.stage.getContext(), 0, 0, 111, 134, "images/zwiebel.png", 22, true, "zwiebel");
+	var i2 = new Ingredient(this.stage.getContext(), 0, 400, 111, 134, "images/zwiebel.png", 20, true, "zwiebel");
 	this.ingredients.push(i2);
 	this.stage.addToStage(i2);
-	var i3 = new Ingredient(this.stage.getContext(), 200, 200, 141, 142, "images/tomate.png", 23, true, "tomate");
+	var i3 = new Ingredient(this.stage.getContext(), 0, 500, 141, 142, "images/tomate.png", 20, true, "tomate");
 	this.ingredients.push(i3);
 	this.stage.addToStage(i3);
 	
@@ -61,6 +61,11 @@ function Kitchen(canvasId){
 	this.platten.push(platte2);
 	var knob2 = new Knob(this.stage.getContext(), 230, 550, 58, 58, "images/knob.png", 18, false, "knob", platte2);
 	this.stage.addToStage(knob2);
+	
+	// schranktueren hinzufuegen
+	
+	var tuer1 = new Tuer(this.stage.getContext(), 400, 0, 168, 236, "images/tuer.jpg.", 21, false, "tuer");
+	this.stage.addToStage(tuer1);
 	
 	/*
 	Ajax.getJSON('http://localhost/kueche/js/tasks.json', function(data){
