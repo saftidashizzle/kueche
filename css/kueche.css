@@ -1,4 +1,13 @@
+h2 {
+	font-size:15px;
+	margin:2px 0 7px 0;
+}
+p{
+	padding:0px;
+	margin:0 0 5px 0;
+}
 #main{
+	background: url(../images/kitchen.jpg);
 	margin:0px auto;
 	width:1000px;
 	height:600px;
@@ -6,20 +15,21 @@
 	}
 	canvas { border:1px solid black;}
 #rezeptBuch{
-	background: url(../images/Rezeptbuch.png);
+	xbackground: url(../images/Rezeptbuch.png);
 	border:1px #000 dashed;
-	width:400px;
-	min-height:250px;
+	width:700px;
+	min-height:500px;
 	position:absolute;
-	left:20px;
-	top:20px;						
+	left:50%;
+	top:20px;
+	margin-left:-350px;
 	}
 #rezeptDetails{
-	background:url(../images/Rezept.gif);
-	width:250px;
-	max-height:150px;
+	xbackground:url(../images/Rezept.gif);
+	border:1px dotted red;
+	width:350px;
 	position:absolute;
-	right:20px;
+	left:20px;
 	top:20px;
-	overflow-x:scroll;
+	display:none;
 	}

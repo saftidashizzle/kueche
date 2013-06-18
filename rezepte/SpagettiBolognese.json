@@ -1,0 +1,30 @@
+{"titel" : "Spagetti Bolognese",
+	"image" : "default_q.png",
+	"Beschreibung": "Spagetti mit Hackfleisch",
+	"zubereitung":{
+		"0":{
+			"name":"Bohnen in den Topf werfen",
+			"beschreibung":"Tue die %bohne% in den %topf%",
+			"user":["Bohne", "Topf"],
+			"aktion": "putin"
+		},
+		"1":{
+			"name":"Karotte Schneiden",
+			"beschreibung":"Schneide das %moehrchen%",
+			"user":["Möhrchen", "Messer"],
+			"aktion": "schneide",
+		},												
+		
+		  
+		  
+		  
+	},
+	"texte": {
+		"fertig": "hmm lecker, sehr gut gemacht! Koche doch noch ein weiteres Gericht.",
+		"fehler": {
+			"zutat": "Falsche Zutat",
+			"topf":"Falsches Kochutensiel",
+			"aktion": "Falsche Aktion"	
+		}
+	}
+}		  

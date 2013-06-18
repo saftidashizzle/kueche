@@ -16,36 +16,36 @@ function Kitchen(canvasId){
 	var animObj = {
 					"image" : 
 					{
-						"tilewidth": 250,
-						"tileHeight": 199,
-						"imgWidth": 1000,
-						"imgHeigth": 597
+						"tilewidth": 83,
+						"tileHeight": 59,
+						"imgWidth": 125,
+						"imgHeigth": 59
 					},
 					"animations":
 					{
 					"default":{ "seq":[0], "loop":false },
 					"cold": {"seq":[0], "loop":false },
-					"heating": {"seq":[4,5,6], "loop":true },
-					"cooling": {"seq":[1,2,3], "loop":true },
-					"boiling":{"seq":[6,7,8,9,10,11], "loop":true}
+					"heating": {"seq":[0,1], "loop":true },
+					"cooling": {"seq":[0,1], "loop":true },
+					"boiling":{"seq":[0,1], "loop":true}
 					}
 				};
 	// pot hinzufügen
 	
 	// hier die groesse des tiles angeben, anstatt bild groesse, außerdem img pfad: sprite grafik und animObj uebergeben
-	var p1 = new Pot(this.stage.getContext(), 300, 280, 250, 199, "images/potAnim.png", 19, true, "pot", animObj);
+	var p1 = new Pot(this.stage.getContext(), 400, 410, 83, 59, "images/potAnim.png", 19, true, "pot", animObj);
 	this.pots.push(p1);
 	this.stage.addToStage(p1);
 	
 	// zutaten hinzufügen
 	
-	var i1 = new Ingredient(this.stage.getContext(), 0, 300, 101, 76, "images/nudel.png", 20, true, "nudel");
+	var i1 = new Ingredient(this.stage.getContext(), 670, 100, 101, 76, "images/nudel.png", 20, true, "nudel");
 	this.ingredients.push(i1);
 	this.stage.addToStage(i1);	
-	var i2 = new Ingredient(this.stage.getContext(), 0, 400, 111, 134, "images/zwiebel.png", 20, true, "zwiebel");
+	var i2 = new Ingredient(this.stage.getContext(), 780, 90, 111, 134, "images/zwiebel.png", 20, true, "zwiebel");
 	this.ingredients.push(i2);
 	this.stage.addToStage(i2);
-	var i3 = new Ingredient(this.stage.getContext(), 0, 500, 141, 142, "images/tomate.png", 20, true, "tomate");
+	var i3 = new Ingredient(this.stage.getContext(), 680, 190, 141, 142, "images/tomate.png", 20, true, "tomate");
 	this.ingredients.push(i3);
 	this.stage.addToStage(i3);
 	
@@ -64,8 +64,8 @@ function Kitchen(canvasId){
 	
 	// schranktueren hinzufuegen
 	
-	var tuer1 = new Tuer(this.stage.getContext(), 400, 0, 168, 236, "images/tuer.jpg.", 21, false, "tuer");
-	this.stage.addToStage(tuer1);
+	//var tuer1 = new Tuer(this.stage.getContext(), 400, 0, 168, 236, "images/tuer.jpg.", 21, false, "tuer");
+	//this.stage.addToStage(tuer1);
 	
 	/*
 	Ajax.getJSON('http://localhost/kueche/js/tasks.json', function(data){
@@ -97,13 +97,15 @@ function Kitchen(canvasId){
 			
 			var rezeptListenElement = document.createElement('li');
 			
-			var rezeptText = document.createTextNode(rezept.Titel);
+			var rezeptText = document.createTextNode(rezept.Titel + " - " + rezept.Aufwand);
 			
 			rezeptListenElement.appendChild(rezeptText);
 			
 			rezeptListeElement.appendChild(rezeptListenElement);
 			
 			rezeptListenElement.addEventListener('click', function() {
+				document.querySelector('#rezeptBuch').style.display = "none";
+				document.querySelector('#rezeptDetails').style.display = "block";
 				rezeptDetailsElement.innerHTML = '';
 				var rezeptDetails = new RezeptManager(rezeptDetailsElement, rezept);
 				rezeptDetails.render();

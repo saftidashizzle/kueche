@@ -1,4 +1,4 @@
-function RezeptDetails(container, data){
+//function RezeptDetails(container, data){
 	this.container = container;
 	this.data = data;
 

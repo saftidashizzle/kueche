@@ -1,18 +1,21 @@
-{ "rezepte": [
+ï»¿{ "rezepte": [
 		{
 			"Titel": "Pizzateig",
-			"Zutaten": [ "500g Mehl", "250 ml Wasser", "etwas Öl", "Salz", "Trockenhefe" ] ,
-			"Arbeitsschritte": [ "Mehl mit Trockenhefe und Salz in eine große Rührschüssel geben" , "Wasser und Öl dazugeben und soweit veruehren, dass sich eine knetbare Masse ergibt", "Teig kräftig durchkneten", "Vor dem ausrollen mindestens eine Stunde bedeckt an einem warmen Ort gehen lassen" ]
+			"Aufwand": "20 min",
+			"Zutaten": [ "500g Mehl", "250 ml Wasser", "etwas Ã–l", "Salz", "Trockenhefe" ] ,
+			"Arbeitsschritte": [ "Mehl mit Trockenhefe und Salz in eine groÃŸe RÃ¼hrschÃ¼ssel geben" , "Wasser und Ã–l dazugeben und soweit veruehren, dass sich eine knetbare Masse ergibt", "Teig krÃ¤ftig durchkneten", "Vor dem ausrollen mindestens eine Stunde bedeckt an einem warmen Ort gehen lassen" ]
 		},
 		{
 			"Titel": "Pilzrisotto",
-			"Zutaten": [ "500g Pilze", "250g Risotte Reis", "1 Zwiebel", "100ml Wein", "400ml Brühe", "bei Bedarf geriebenen Hartkäse" ,"Petersilie frisch oder tiefgefroren" ],
-			"Arbeitsschritte": [ "Zwiebel mit Öl andünsten" , "Risotto Reis andünsten bis er glasig wird", "Mit dem Wein ablöschen", "Hitze reduzieren und bei Geringer Hitze jeweils Flüssigkeit hinzugeben. Jeweils warten bis der Reis die ganze Flüssigkeit aufgenommen hat. Ein gutes Risotto benötigt Zeit.", "In der zwischenzeit die Pilze in klein schneiden", "Solange Flüssigkeit hinzugeben bis der Reis durch aber noch leicht bissfest ist und die Masse eine sämige Konsistenz hat.", "Abschmecken mit Pfeffer, Salz, Petersilie, Hartkäse" ]
+			"Aufwand": "20 min",
+			"Zutaten": [ "500g Pilze", "250g Risotte Reis", "1 Zwiebel", "100ml Wein", "400ml BrÃ¼he", "bei Bedarf geriebenen HartkÃ¤se" ,"Petersilie frisch oder tiefgefroren" ],
+			"Arbeitsschritte": [ "Zwiebel mit Ã–l andÃ¼nsten" , "Risotto Reis andÃ¼nsten bis er glasig wird", "Mit dem Wein ablÃ¶schen", "Hitze reduzieren und bei Geringer Hitze jeweils FlÃ¼ssigkeit hinzugeben. Jeweils warten bis der Reis die ganze FlÃ¼ssigkeit aufgenommen hat. Ein gutes Risotto benÃ¶tigt Zeit.", "In der zwischenzeit die Pilze in klein schneiden", "Solange FlÃ¼ssigkeit hinzugeben bis der Reis durch aber noch leicht bissfest ist und die Masse eine sÃ¤mige Konsistenz hat.", "Abschmecken mit Pfeffer, Salz, Petersilie, HartkÃ¤se" ]
 		},
 		{
 			"Titel": "Spagetti Bolognese",
-			"Zutaten": [ "Nudeln", "Hackfleisch", "Dosentomaten 800g", "Tomatenmark", "1 Zwiebel", "2 Zehen Knoblauch", "geriebenen Hartkäse" ],
-			"Arbeitsschritte": [ "Wasser mit Salz aufsetzen" , "Zwiebel würfeln", "Knoblauch in dünne Scheiben schneiden", "Schältomaten in kleine Stücke schneiden", "Zwiebeln mit Hackfleisch anbraten", "Knoblauch und Tomatenmark dazugeben und kurz mit andünsten", "Schältomaten hinzufügen und eine Stunde lang bei geringer Hitze köcheln lassen", "Abschmecken mit Pfeffer, Salz, Italienischen Kräutern und Paprika" ]
+			"Aufwand": "20 min",
+			"Zutaten": [ "Nudeln", "Hackfleisch", "Dosentomaten 800g", "Tomatenmark", "1 Zwiebel", "2 Zehen Knoblauch", "geriebenen HartkÃ¤se" ],
+			"Arbeitsschritte": [ "Wasser mit Salz aufsetzen" , "Zwiebel wÃ¼rfeln", "Knoblauch in dÃ¼nne Scheiben schneiden", "SchÃ¤ltomaten in kleine StÃ¼cke schneiden", "Zwiebeln mit Hackfleisch anbraten", "Knoblauch und Tomatenmark dazugeben und kurz mit andÃ¼nsten", "SchÃ¤ltomaten hinzufÃ¼gen und eine Stunde lang bei geringer Hitze kÃ¶cheln lassen", "Abschmecken mit Pfeffer, Salz, Italienischen KrÃ¤utern und Paprika" ]
 		}
 	]
 }
