@@ -33,7 +33,7 @@ function Kitchen(canvasId){
 	// pot hinzufügen
 	
 	// hier die groesse des tiles angeben, anstatt bild groesse, außerdem img pfad: sprite grafik und animObj uebergeben
-	var p1 = new Pot(this.stage.getContext(), 400, 410, 83, 59, "images/potAnim.png", 19, true, "pot", animObj);
+	var p1 = new Pot(this.stage.getContext(), 400, 400, 83, 59, "images/potAnim.png", 19, true, "pot", animObj);
 	this.pots.push(p1);
 	this.stage.addToStage(p1);
 	
@@ -51,12 +51,12 @@ function Kitchen(canvasId){
 	
 	// herdplatten und schalter hinzufügen
 	
-	var platte1 = new Platte(this.stage.getContext(), 440, 470, 242, 85, "images/platte.png", 18, false, "platte");
+	var platte1 = new Platte(this.stage.getContext(), 297, 340, 70, 36, "images/platte.png", 18, false, "platte");
 	this.stage.addToStage(platte1);
 	this.platten.push(platte1);
 	var knob1 = new Knob(this.stage.getContext(), 530, 550, 58, 58, "images/knob.png", 18, false, "knob", platte1);
 	this.stage.addToStage(knob1);			
-	var platte2 = new Platte(this.stage.getContext(), 140, 470, 242, 85, "images/platte.png", 18, false, "platte");
+	var platte2 = new Platte(this.stage.getContext(), 228, 340, 70, 36, "images/platte.png", 18, false, "platte");
 	this.stage.addToStage(platte2);
 	this.platten.push(platte2);
 	var knob2 = new Knob(this.stage.getContext(), 230, 550, 58, 58, "images/knob.png", 18, false, "knob", platte2);
