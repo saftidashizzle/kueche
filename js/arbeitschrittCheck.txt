@@ -1,0 +1,23 @@
+methode auslagern, diese überprüft ob die änderung 
+die am topf vorgenommen werden soll den vorraussetzungen 
+für den nächsten arbeitsschritt übereinstimmt
+wenn ja: arbeitsschritt++ & aktion zulassen
+wenn nein: fehlermeldung & aktion nicht zulassen
+
+arbeitsschrittCheck(was passiert, mit wem es passiert);
+einzelne checks für alle "was passiert" (wasser füllen, topf hitze, zutat hinzufügen)
+im einzelnen check wird dann geprüft ob "mit wem es passiert" und "was passiert" so
+als aufgabe im aktuellen arbeitsschritt angefordert ist
+
+arbeitsschrittCheck dient als check bei den Arbeitsschritten (tomate in topf tun)
+
+
+public boolean arbeitsschrittCheck(wo, was, step){
+	if(rezepte.this.arbeitsschritte[step].bedingung[0]==wo){
+		if(rezepte.this.arbeitsschritte[step].bedingung[1]==was){
+			Gewünschte Aktion wirklich ausführen...
+			stepp++;
+		}
+	}
+	else getFehlerFeldId.textÄndern = rezepte.this.arbeitsschritte[step].fehler
+}

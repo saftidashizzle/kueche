@@ -10,6 +10,7 @@ function Kitchen(canvasId){
 	this.pots = [];
 	this.ingredients = [];
 	this.platten = [];
+	this.step = 0;
 	
 	// animObjekt fuer sprite vom topf erstellen
 	
@@ -167,12 +168,10 @@ Kitchen.prototype.onDragend = function(event) {
 			
 			//check if center point of ingredient is over the pot's 
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
-				if(event.target.name == 'tomate'){
+				if(arbeitsschrittCheck(pot, event.target.name, step){
 					pot.setIngredient(event.target);
 					kitchen.stage.removeFromStage(event.target);
-				} else{
-					console.log('Falsche Zutat');
-				}
+				} 
 			}
 		});
 	}

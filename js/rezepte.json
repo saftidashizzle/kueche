@@ -3,8 +3,20 @@
 			"Titel": "Pizzateig",
 			"Aufwand": "20 min",
 			"Zutaten": [ "500g Mehl", "250 ml Wasser", "etwas Öl", "Salz", "Trockenhefe" ] ,
-			"Arbeitsschritte": [ "Mehl mit Trockenhefe und Salz in eine große Rührschüssel geben" , "Wasser und Öl dazugeben und soweit veruehren, dass sich eine knetbare Masse ergibt", "Teig kräftig durchkneten", "Vor dem ausrollen mindestens eine Stunde bedeckt an einem warmen Ort gehen lassen" ]
-		},
+			"Arbeitsschritte":{
+				"0":{
+					"name":"Bohnen in den Topf werfen",
+					"beschreibung":"Tue die %bohne% in den %topf%",
+					"bedingung": [pot, wasser],
+					"fehler": "Nimm doch Wasser ausm Waschbecken!"
+				},
+				"1":{
+					"name":"Karotte Schneiden",
+					"beschreibung":"Schneide das %moehrchen%",
+					"bedingung": [pot, zwiebel],
+				},
+			}
+		}
 		{
 			"Titel": "Pilzrisotto",
 			"Aufwand": "20 min",
