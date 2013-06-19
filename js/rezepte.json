@@ -14,8 +14,10 @@
 		{
 			"Titel": "Spagetti Bolognese",
 			"Aufwand": "20 min",
-			"Zutaten": [ "Nudeln", "Hackfleisch", "Dosentomaten 800g", "Tomatenmark", "1 Zwiebel", "2 Zehen Knoblauch", "geriebenen Hartkäse" ],
-			"Arbeitsschritte": [ "Wasser mit Salz aufsetzen" , "Zwiebel würfeln", "Knoblauch in dünne Scheiben schneiden", "Schältomaten in kleine Stücke schneiden", "Zwiebeln mit Hackfleisch anbraten", "Knoblauch und Tomatenmark dazugeben und kurz mit andünsten", "Schältomaten hinzufügen und eine Stunde lang bei geringer Hitze köcheln lassen", "Abschmecken mit Pfeffer, Salz, Italienischen Kräutern und Paprika" ]
+			"Zutaten": [ "Nudeln", "Hackfleisch", "Dosentomaten 800g", "Tomatenmark", "1 Zwiebel", "geriebenen Hartkäse" ],
+			"Arbeitsschritte":[
+				
+			]
 		}
 	]
 }
