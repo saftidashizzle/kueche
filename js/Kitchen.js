@@ -64,8 +64,8 @@ function Kitchen(canvasId){
 	
 	// schranktueren hinzufuegen
 	
-	//var tuer1 = new Tuer(this.stage.getContext(), 400, 0, 168, 236, "images/tuer.jpg.", 21, false, "tuer");
-	//this.stage.addToStage(tuer1);
+	var tuer1 = new Tuer(this.stage.getContext(), 400, 0, 168, 236, "images/tuer.jpg.", 21, false, "tuer");
+	this.stage.addToStage(tuer1);
 	
 	/*
 	Ajax.getJSON('http://localhost/kueche/js/tasks.json', function(data){
@@ -167,8 +167,12 @@ Kitchen.prototype.onDragend = function(event) {
 			
 			//check if center point of ingredient is over the pot's 
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
-				pot.setIngredient(event.target);
-				kitchen.stage.removeFromStage(event.target);
+				if(event.target.name == 'tomate'){
+					pot.setIngredient(event.target);
+					kitchen.stage.removeFromStage(event.target);
+				} else{
+					console.log('Falsche Zutat');
+				}
 			}
 		});
 	}
