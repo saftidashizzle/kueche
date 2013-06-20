@@ -11,6 +11,7 @@ function Kitchen(canvasId){
 	this.ingredients = [];
 	this.platten = [];
 	this.step = 0;
+	this.aktuellesRezept= null;
 	
 	// animObjekt fuer sprite vom topf erstellen
 	
@@ -109,6 +110,7 @@ function Kitchen(canvasId){
 				document.querySelector('#rezeptDetails').style.display = "block";
 				rezeptDetailsElement.innerHTML = '';
 				var rezeptDetails = new RezeptManager(rezeptDetailsElement, rezept);
+				aktuellesRezept = rezeptDetails;
 				rezeptDetails.render();
 			});
 			
@@ -126,7 +128,23 @@ function Kitchen(canvasId){
 
 // kitchen function vorbei
 }	
-
+function schrittCheck(wo,was,schritt) {
+	/*if(rezeptDetailsElement.arbeitsschritte[step].bedingung[0]==wo){
+		if(rezeptDetailsElement.arbeitsschritte[step].bedingung[1]==was){
+			step++;
+			return true;
+		}
+	}
+	else return false*/
+	console.log(aktuellesRezept);
+	if(wo=="pot"){
+		if(was=="tomate"){
+			return true;
+			
+		}
+	}
+	else return false;
+}
 // bei Klick funktion
 Kitchen.prototype.onClick = function(event) {
 	if(event.target instanceof Knob) {
@@ -168,7 +186,7 @@ Kitchen.prototype.onDragend = function(event) {
 			
 			//check if center point of ingredient is over the pot's 
 			if ((cx > zone.hx && cx < zone.hx + zone.hw) && (cy > zone.hy && cy < zone.hy + zone.hh)) {
-				if(arbeitsschrittCheck(pot, event.target.name, step){
+				if(schrittCheck("pot", event.target.name, this.step)){
 					pot.setIngredient(event.target);
 					kitchen.stage.removeFromStage(event.target);
 				} 

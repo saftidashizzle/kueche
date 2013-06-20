@@ -42,7 +42,7 @@ function RezeptManager(container, data){
 		
 	};
 }
-Rezeptmanager.prototype.constructor = Rezeptmanager;
+/*Rezeptmanager.prototype.constructor = Rezeptmanager;
 Rezeptmanager.prototype.erstelleArbeitsschritte = function() {
 	document.getElementById('arbeitsanweisungen').style.display='block';	
 	var titel = document.querySelector('#arbeitsanweisungen');
@@ -154,4 +154,4 @@ Rezeptmanager.prototype.check = function(taeter,opfer,mode) {
 		break;	
 		
 	}
-}
+}*/
